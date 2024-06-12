@@ -3,6 +3,8 @@
 #include <cstring>
 using namespace std;
 
+https://stevenuniverso.fandom.com/pt-br/wiki/Categoria:Personagens?from=C
+
 
 //nome	Jeans	categoria	temporada		habilidade	categoria 	fusao 
 A Drusa
