@@ -1,15 +1,15 @@
 /* Grupo: Giovanna Maira Soares Chaves,2024005472; Gabriel Leandro Fonseca Silva, 2024008198.
    Data:02/07/2024
-   Objetivo: O programa serve para dar informações sobre os personagens de Steven Universo.
-   Nosso ponto de vista: como fãs de longa data do desenho, usariamos esse programa para pesquisar em qual temporrada está
-   um determinado personagem para assistirmos novamente, além de saber sua espécie/gem, tornando a esperiência ainda melhor. */
+   Objetivo: O programa serve para dar informaÃ§Ãµes sobre os personagens de Steven Universo.
+   Nosso ponto de vista: como fÃ£s de longa data do desenho, usariamos esse programa para pesquisar em qual temporrada estÃ¡
+   um determinado personagem para assistirmos novamente, alÃ©m de saber sua espÃ©cie/gem, tornando a esperiÃªncia ainda melhor. */
 
 #include <iostream>
 #include <fstream>
-#include <cstring> // Para funções de manipulação de C-strings
+#include <cstring> // Para funÃ§Ãµes de manipulaÃ§Ã£o de C-strings
 using namespace std;
 
-struct Registro   //Armazena as informações vindas do arquvio de entrada, cada registro é uma linha
+struct Registro   //Armazena as informaÃ§Ãµes vindas do arquvio de entrada, cada registro Ã© uma linha
 {
     char Personagem[100];
     char Especie[100];
@@ -22,7 +22,7 @@ struct Registro   //Armazena as informações vindas do arquvio de entrada, cada r
 };
 void substring(char linha[800], char aux[100], int &i, char delimitador)
 {
-    //passa a informação de linha a linha(linha) do arquivo, respeitando as vírgulas e armazena em aux
+    //passa a informaÃ§Ã£o de linha a linha(linha) do arquivo, respeitando as vÃ­rgulas e armazena em aux
     int k = 0;
     while (linha[i] != delimitador && linha[i] != '\0')
     {
@@ -34,7 +34,7 @@ void substring(char linha[800], char aux[100], int &i, char delimitador)
     if (linha[i] == delimitador)
         i++;
 }
-bool carrega_registro(ifstream& arquivo, Registro& h) //armazenar as informações do arquivo ifstream no registro
+bool carrega_registro(ifstream& arquivo, Registro& h) //armazenar as informaÃ§Ãµes do arquivo ifstream no registro
 {
     char linha[800]; // 8 campos por linha no arquivo CSV
     if (arquivo.getline(linha, 800))//le a linha do arquivo
@@ -68,12 +68,12 @@ bool carrega_registro(ifstream& arquivo, Registro& h) //armazenar as informações
 
         return true; //retorna se o procedimento deu certo
     }
-    return false; //ou não
+    return false; //ou nÃ£o
 }
 
-void imprimirRegistro(Registro registro, ofstream& saida)//o arquivoSaida do tipo ofstream será modificado e impresso
+void imprimirRegistro(Registro registro, ofstream& saida)//o arquivoSaida do tipo ofstream serÃ¡ modificado e impresso
 {
-    saida << registro.Personagem << ","; //o arquivo saida recebe a informação e a virgula
+    saida << registro.Personagem << ","; //o arquivo saida recebe a informaÃ§Ã£o e a virgula
     saida  << registro.Especie << ",";
     saida  << registro.Forca << ",";
     saida  << registro.Temporada1 << ",";
@@ -83,20 +83,20 @@ void imprimirRegistro(Registro registro, ofstream& saida)//o arquivoSaida do tip
     saida << registro.Temporada5 << endl;
 }
 
-int exibirMenu() //exibe o menu e retorna a opção escolhida pelo usuário
+int exibirMenu() //exibe o menu e retorna a opÃ§Ã£o escolhida pelo usuÃ¡rio
 {
     int escolha;
     cout << "Menu de Pesquisa:" << endl;
-    cout << "1. Pesquisar a espécie" << endl;
-    cout << "2. Pesquisar a força" << endl;
-    cout << "3. Pesquisar a participação na temporada 1" << endl;
-    cout << "4. Pesquisar a participação na temporada 2" << endl;
-    cout << "5. Pesquisar a participação na temporada 3" << endl;
-    cout << "6. Pesquisar a participação na temporada 4" << endl;
-    cout << "7. Pesquisar a participação na temporada 5" << endl;
-    cout << "8. Pesquisar todas as opções" << endl;
+    cout << "1. Pesquisar a espÃ©cie" << endl;
+    cout << "2. Pesquisar a forÃ§a" << endl;
+    cout << "3. Pesquisar a participaÃ§Ã£o na temporada 1" << endl;
+    cout << "4. Pesquisar a participaÃ§Ã£o na temporada 2" << endl;
+    cout << "5. Pesquisar a participaÃ§Ã£o na temporada 3" << endl;
+    cout << "6. Pesquisar a participaÃ§Ã£o na temporada 4" << endl;
+    cout << "7. Pesquisar a participaÃ§Ã£o na temporada 5" << endl;
+    cout << "8. Pesquisar todas as opÃ§Ãµes" << endl;
     cout << "9. Sair" << endl;
-    cout << "Escolha uma opção: ";
+    cout << "Escolha uma opÃ§Ã£o: ";
     cin >> escolha;
     cin.ignore(); // Limpar o buffer do teclado
     return escolha;
@@ -105,7 +105,7 @@ int exibirMenu() //exibe o menu e retorna a opção escolhida pelo usuário
 bool comparaStrings(char str1[100], char str2[100])
 {
     int i = 0;
-    while (str1[i] != '\0' && str2[i] != '\0') //se a linha não chegou ao fim e as chars são diferentes, retorne falso
+    while (str1[i] != '\0' && str2[i] != '\0') //se a linha nÃ£o chegou ao fim e as chars sÃ£o diferentes, retorne falso
     {
         if (str1[i] != str2[i])
         {
@@ -116,10 +116,10 @@ bool comparaStrings(char str1[100], char str2[100])
     return str1[i] == '\0' && str2[i] == '\0'; //compara e retorna falso ou verdadeiro
 }
 
-void pesquisarEImprimir(Registro registros[], int numRegistros, int opcao, ofstream& arquivoSaida) //o arquivoSaida do tipo ofstream será modificado e impresso
+void pesquisarEImprimir(Registro registros[], int numRegistros, int opcao, ofstream& arquivoSaida) //o arquivoSaida do tipo ofstream serÃ¡ modificado e impresso
 {
     char termoPesquisa[100];
-    cout << "Informe o personagem, começando com letra maiúscula: ";
+    cout << "Informe o personagem, comeÃ§ando com letra maiÃºscula: ";
     cin.getline(termoPesquisa, 100);
 
     bool encontrado = false;
@@ -127,19 +127,19 @@ void pesquisarEImprimir(Registro registros[], int numRegistros, int opcao, ofstr
     {
         switch (opcao)
         {
-        case 1: // Pesquisar por Espécie
-            if (comparaStrings(registros[i].Personagem, termoPesquisa))//a informação do registro será comparada com a resposta do usuário
+        case 1: // Pesquisar por EspÃ©cie
+            if (comparaStrings(registros[i].Personagem, termoPesquisa))//a informaÃ§Ã£o do registro serÃ¡ comparada com a resposta do usuÃ¡rio
             { //e se achou
-                imprimirRegistro(registros[i], arquivoSaida);// passa essa informação para ser impressa no arquivo de saída
+                imprimirRegistro(registros[i], arquivoSaida);// passa essa informaÃ§Ã£o para ser impressa no arquivo de saÃ­da
                 cout << "Especie: " << registros[i].Especie << endl;// e imprime na tela
                 encontrado = true; //verifica se deu certo
             }
             break;
-        case 2: // Pesquisar por Força
+        case 2: // Pesquisar por ForÃ§a
             if (comparaStrings(registros[i].Personagem, termoPesquisa))
             {
                 imprimirRegistro(registros[i], arquivoSaida);
-                cout << "Força: " << registros[i].Forca << endl;
+                cout << "ForÃ§a: " << registros[i].Forca << endl;
                 encontrado = true;
             }
             break;
@@ -183,14 +183,14 @@ void pesquisarEImprimir(Registro registros[], int numRegistros, int opcao, ofstr
                 encontrado = true;
             }
             break;
-        case 8: // Pesquisar todas as opções
-            if (comparaStrings(registros[i].Personagem, termoPesquisa)) //passa o registro e a resposta do usuário por referencia para a função que o encontra
+        case 8: // Pesquisar todas as opÃ§Ãµes
+            if (comparaStrings(registros[i].Personagem, termoPesquisa)) //passa o registro e a resposta do usuÃ¡rio por referencia para a funÃ§Ã£o que o encontra
             {
-                imprimirRegistro(registros[i], arquivoSaida); //adiciona o contúdo no arquivo de saida
+                imprimirRegistro(registros[i], arquivoSaida); //adiciona o contÃºdo no arquivo de saida
                 cout << "Registro encontrado:" << endl;
-                cout << "Personagem: " << registros[i].Personagem << endl;//imprime a informação do arquivo de saida
+                cout << "Personagem: " << registros[i].Personagem << endl;//imprime a informaÃ§Ã£o do arquivo de saida
                 cout << "Especie: " << registros[i].Especie << endl;
-                cout << "Força: " << registros[i].Forca << endl;
+                cout << "ForÃ§a: " << registros[i].Forca << endl;
                 cout << "Temporada 1: " << registros[i].Temporada1 << endl;
                 cout << "Temporada 2: " << registros[i].Temporada2 << endl;
                 cout << "Temporada 3: " << registros[i].Temporada3 << endl;
@@ -201,11 +201,11 @@ void pesquisarEImprimir(Registro registros[], int numRegistros, int opcao, ofstr
             }
             break;
         default:
-            cout << "Opção inválida. Tente novamente." << endl;
+            cout << "OpÃ§Ã£o invÃ¡lida. Tente novamente." << endl;
             return;
         }
     }
-    if (!encontrado)//informa quando o registro não foi encontrado
+    if (!encontrado)//informa quando o registro nÃ£o foi encontrado
     {
         cout << "Nenhum registro encontrado para o termo de pesquisa." << endl;
     }
@@ -227,29 +227,29 @@ int main()
 
     while (numRegistros < 75 && carrega_registro(arquivoEntrada, registros[numRegistros]))// Ler todos os registros do arquivo,
     {
-        //se a linha do arquivo for menor que 75 e a linha foi carregada na funçaõ, vá para a próxima linha
+        //se a linha do arquivo for menor que 75 e a linha foi carregada na funÃ§aÃµ, vÃ¡ para a prÃ³xima linha
         numRegistros++;
     }
-    arquivoEntrada.close(); // Fechar o arquivo após a leitura
+    arquivoEntrada.close(); // Fechar o arquivo apÃ³s a leitura
 
     if (numRegistros == 0) // informa caso nenhuma linha tenha sido lida
     {
         cout << "Nenhum registro encontrado no arquivo steven.csv" << endl;
     }
 
-    ofstream arquivoSaida("steven_saida.csv"); // cria o arquivo de saída
+    ofstream arquivoSaida("steven_saida.csv"); // cria o arquivo de saÃ­da
     if (!arquivoSaida.is_open()) //verifica se abriu
     {
-        cout << "Erro ao abrir o arquivo de saída." << endl;
+        cout << "Erro ao abrir o arquivo de saÃ­da." << endl;
     }
 
 
-    arquivoSaida << "Personagem,Especie,Forca,Temporada1,Temporada2,Temporada3,Temporada4,Temporada5" << endl;// Escrever o cabeçalho do CSV
+    arquivoSaida << "Personagem,Especie,Forca,Temporada1,Temporada2,Temporada3,Temporada4,Temporada5" << endl;// Escrever o cabeÃ§alho do CSV
 
     int escolha;
-    do  //verifica se o usuario escolheu uma das opções do menu e exibe ele novamente caso contrário
+    do  //verifica se o usuario escolheu uma das opÃ§Ãµes do menu e exibe ele novamente caso contrÃ¡rio
     {
-        escolha = exibirMenu();//chama a fução do menu e armazena a opção escolida pelo usuário em "escolha"
+        escolha = exibirMenu();//chama a fuÃ§Ã£o do menu e armazena a opÃ§Ã£o escolida pelo usuÃ¡rio em "escolha"
         if (escolha >= 1 && escolha <= 8)
         {
             pesquisarEImprimir(registros, numRegistros, escolha, arquivoSaida);
@@ -257,7 +257,7 @@ int main()
     }
     while (escolha != 9);//se 9 sai do programa
 
-    arquivoSaida.close(); // Fechar o arquivo de saída após a escrita
+    arquivoSaida.close(); // Fechar o arquivo de saÃ­da apÃ³s a escrita
 
     return 0;
 }
